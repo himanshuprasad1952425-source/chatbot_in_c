@@ -1,0 +1,174 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+
+    int ch, a, b, choice, rchoice;
+    char str[100], c[100], j[10];
+
+    // Seed random generator
+    srand(time(0));
+
+    // Start program
+    do {
+        printf("Hi! I'm a simple chatbot. Type 'help' to see what I can do.\n");
+        scanf("%s", str);
+
+        if (strcmp(str, "help") != 0) {
+            printf("Invalid input. Please type 'help' to proceed.\n");
+        }
+
+    } while (strcmp(str, "help") != 0);
+
+    // Main menu loop
+    do {
+        printf("\nMenu\n1. Chat with me\n2. Mathematical Calculations\n3. Tell me a joke\n4. Random Command\n5. Exit\nEnter your choice: ");
+        scanf("%d", &ch);
+
+        switch (ch) {
+
+// -----------------------------------------------------
+// 1. CHAT Module
+// -----------------------------------------------------
+        case 1:
+            while (1) {
+                printf("\nType something (or type 'exit' to stop chatting): ");
+                scanf(" %[^\n]%*c", c);
+
+                if (strcmp(c, "hai") == 0 || strcmp(c, "hello") == 0) {
+                    printf("Hello, Having a good day? lets start chatting😉 ");
+                }
+                else if (strcmp(c, "good") == 0 || strcmp(c, "fine") == 0) {
+                    printf("That's great to hear🥰! What else would you like to chat about?");
+                }
+                else if (strcmp(c, "who") == 0) {
+                    printf("I'm just a simple chatbot trying to make your day better by helping u in various ways.😏😎");
+                }
+                else if (strcmp(c, "thanks") == 0) {
+                    printf("You're welcome! I'm always here to help you.😇");
+                }
+                else if (strcmp(c, "exit") == 0) {
+                    printf("Goodbye!🤗 Returning to main menu.\n");
+                    break;
+                }
+                else {
+                    printf("I didn't understand that. Try saying 'hai', 'hello', 'good', 'who',or 'thanks'.");
+                }
+            }
+            break;
+
+// -----------------------------------------------------
+// 2. MATH CALCULATOR
+// -----------------------------------------------------
+        case 2:
+            do {
+                printf("Mathematical Calculations:\n1.Addition\n2.Subtraction\n3.Multiplication\n4.Division\n5.Exit\n");
+                printf("Enter your choice: ");
+                scanf("%d", &choice);
+
+                if (choice >= 1 && choice <= 4) {
+                    printf("Enter two numbers: ");
+                    scanf("%d %d", &a, &b);
+                }
+
+                switch (choice) {
+                case 1:
+                    printf("Result: %d\n", a + b);
+                    break;
+
+                case 2:
+                    printf("Result: %d\n", a - b);
+                    break;
+
+                case 3:
+                    printf("Result: %d\n", a * b);
+                    break;
+
+                case 4:
+                    if (b != 0)
+                        printf("Result: %.2f\n", (float)a / b);
+                    else
+                        printf("Error! Division by zero.\n");
+                    break;
+
+                case 5:
+                    printf("Returning to main menu.\n");
+                    break;
+
+                default:
+                    printf("Invalid choice! Try again.\n");
+                }
+
+            } while (choice != 5);
+            break;
+
+// -----------------------------------------------------
+// 3. JOKE
+// -----------------------------------------------------
+        case 3:
+            printf("\nHere's a joke: Why was six afraid of seven? Because seven eight nine.!\n");
+            printf("\nHere's the second one: Why cant you trust math teachers? They always have problems!\n");
+            printf("\nHere's the third joke: Why did the scarecrow win an award? Because he was outstanding in his field!\n");
+            printf("\nHere's the fourth one: Why was the math book sad? It had too many problems.!\n");           
+            printf("\nAnd the last one: Why did the student eat his homework? Because the teacher told him it was a piece of cake!\n");
+            printf("Type somethind to return to the menu: ");
+            scanf(" %[^\n]%*c", j);
+            break;
+
+// -----------------------------------------------------
+// 4. RANDOM COMMAND 
+// -----------------------------------------------------
+        case 4:
+            printf("\nRandom Menu:\n1. Random Number\n2. Random Dark Joke\n3. Random Greeting\nEnter your choice: ");
+            scanf("%d", &rchoice);
+
+            switch (rchoice) {
+            case 1:
+                printf("Random number: %d\n", rand() % 100);
+                break;
+
+            case 2: {
+                const char *darkjokes[] = {
+                    "!What is the difference between an orphan and apple ?The apples get picked!",
+                    "do u know y Americans are good in solving rubix cube? because they have a history of separating colours .",
+                    "My walet is like an onion .opening it makes me cry!"
+                };
+                printf("%s\n", darkjokes[rand() % 3]);
+            }
+            break;
+
+            case 3: {
+                const char *greet[] = {
+                    "Hey there!",
+                    "Good to see you!",
+                    "Hope you're having a great day!",
+                    "Hello its me OBANAI!",
+                };
+                printf("%s\n", greet[rand() % 4]);
+            }
+            break;
+
+            default:
+                printf("Invalid random option.\n");
+            }
+            break;
+
+// -----------------------------------------------------
+// 5. EXIT  
+// -----------------------------------------------------
+        case 5:
+            printf("Exiting program. SEE YOU NEXT TIME!\n");
+            printf("!!HAVE A NICE DAY!!\n");
+            break;
+
+// -----------------------------------------------------
+        default:
+            printf("Invalid choice. Please try again.\n");
+        }
+
+    } while (ch != 5);
+
+    return 0;
+}
