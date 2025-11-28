@@ -38,7 +38,7 @@ int main() {
                 scanf(" %[^\n]%*c", c);
 
                 if (strcmp(c, "hai") == 0 || strcmp(c, "hello") == 0) {
-                    printf("Hello, Having a good day? lets start chatting😉 ");
+                    printf("Hello, Having a good day? what would u like to chat about ?😉 ");
                 }
                 else if (strcmp(c, "good") == 0 || strcmp(c, "fine") == 0) {
                     printf("That's great to hear🥰! What else would you like to chat about?");
